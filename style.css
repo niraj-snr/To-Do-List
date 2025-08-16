@@ -1,0 +1,623 @@
+/* Vibrant Color Palette */
+:root {
+  /* Dark Mode (Default) */
+  --dark-bg: #1a1a2e;
+  --darker-bg: #0f0f1f;
+  --text-light: #ffffff;
+  --neon-pink: #ff6bff;
+  --electric-blue: #00f2ff;
+  --lime-green: #a2ff00;
+  --purple: #b400ff;
+  --card-bg: rgba(26, 26, 46, 0.7);
+  --input-bg: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 242, 255, 0.3);
+}
+
+/* Base Styles */
+body {
+  font-family: 'Baloo 2', cursive;
+  background: linear-gradient(135deg, var(--darker-bg), var(--dark-bg));
+  color: var(--text-light);
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Fredoka One', cursive;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 25px;
+  position: relative;
+}
+
+/* Neon Glow Effects */
+.neon-box {
+  background: rgba(26, 26, 46, 0.7);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.3),
+    0 0 30px rgba(255, 107, 255, 0.2);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  position: relative;
+}
+
+.glow {
+  animation: glow-pulse 3s infinite alternate;
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 5px var(--electric-blue);
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--neon-pink);
+  }
+
+  100% {
+    box-shadow: 0 0 10px var(--lime-green);
+  }
+}
+
+/* To-Do Container */
+.todo-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.todo-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle,
+      rgba(0, 242, 255, 0.1) 0%,
+      rgba(255, 107, 255, 0.05) 50%,
+      transparent 70%);
+  animation: float 15s infinite linear;
+  z-index: -1;
+}
+
+@keyframes float {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.header-glow {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header-glow h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, var(--neon-pink), var(--electric-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: var(--text-glow);
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: var(--electric-blue);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Quote Box */
+.quote-box {
+  background: rgba(180, 0, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+  font-style: italic;
+  position: relative;
+  border-left: 4px solid var(--neon-pink);
+}
+
+.quote-box p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/* Sections */
+.section {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  color: var(--lime-green);
+  padding: 10px 15px;
+  background: rgba(162, 255, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.section-title:hover {
+  background: rgba(162, 255, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Input Styles */
+.task-input,
+.event-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.input-glow {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.1);
+}
+
+.task-input input,
+.event-input input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.task-input input:focus,
+.event-input input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px var(--electric-blue);
+}
+
+.task-input input::placeholder,
+.event-input input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.add-btn {
+  padding: 0 20px;
+  background: linear-gradient(45deg, var(--purple), var(--neon-pink));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--neon-pink);
+}
+
+/* List Styles */
+.mission-list,
+.quest-list,
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mission-list li,
+.quest-list li,
+.event-list li {
+  padding: 15px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+  position: relative;
+}
+
+.mission-list li {
+  border-left-color: var(--electric-blue);
+}
+
+.quest-list li {
+  border-left-color: var(--lime-green);
+}
+
+.event-list li {
+  border-left-color: var(--neon-pink);
+}
+
+.mission-list li:hover,
+.quest-list li:hover,
+.event-list li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.delete-btn,
+.delete-event {
+  background: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.delete-btn:hover,
+.delete-event:hover {
+  background: rgba(255, 107, 107, 0.4);
+  transform: rotate(90deg);
+}
+
+.completed {
+  position: relative;
+  opacity: 0.6;
+}
+
+.completed::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 50%;
+  height: 2px;
+  background: var(--lime-green);
+  transform: scaleX(0);
+  animation: strike 0.3s forwards;
+}
+
+@keyframes strike {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Celebration Animation - FIXED POSITION */
+.celebration {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px 25px;
+  border-radius: 15px;
+  z-index: 100;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-out;
+  border: 2px solid var(--lime-green);
+}
+
+.celebration.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.celebration .message {
+  font-size: 1.5rem;
+  font-family: 'Fredoka One', cursive;
+  background: linear-gradient(45deg, var(--neon-pink), var(--electric-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: var(--text-glow);
+  margin: 0;
+}
+
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--neon-pink);
+  opacity: 0;
+  animation: confetti-fall 1.5s ease-in-out;
+}
+
+.confetti:nth-child(2) {
+  background: var(--electric-blue);
+  animation-delay: 0.2s;
+  left: 20%;
+}
+
+.confetti:nth-child(3) {
+  background: var(--lime-green);
+  animation-delay: 0.4s;
+  left: 80%;
+}
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    top: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(100px) rotate(360deg);
+    top: 100%;
+  }
+}
+
+/* Calendar Styles */
+.calendar-container {
+  width: 350px;
+  position: relative;
+}
+
+.calendar-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, var(--neon-pink) 0%, transparent 70%);
+  filter: blur(20px);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.month-title {
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, var(--electric-blue), var(--neon-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: var(--text-glow);
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--electric-blue);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover {
+  background: rgba(0, 242, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.day-header {
+  text-align: center;
+  font-weight: bold;
+  color: var(--electric-blue);
+  padding: 5px;
+  font-size: 0.9rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: bold;
+}
+
+.calendar-day:hover {
+  background: rgba(0, 242, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.calendar-day.empty {
+  visibility: hidden;
+}
+
+.calendar-day.today {
+  background: var(--lime-green);
+  color: var(--dark-bg);
+  box-shadow: 0 0 15px var(--lime-green);
+}
+
+.calendar-day.selected {
+  background: var(--neon-pink);
+  color: white;
+  box-shadow: 0 0 20px var(--neon-pink);
+}
+
+.calendar-day.has-events::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  width: 5px;
+  height: 5px;
+  background: var(--electric-blue);
+  border-radius: 50%;
+}
+
+.events-title {
+  font-size: 1.2rem;
+  color: var(--neon-pink);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.streak-counter {
+  background: rgba(255, 107, 107, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.streak-counter i {
+  color: #ff6b6b;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .calendar-container {
+    width: auto;
+  }
+
+  .header-glow h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Animations */
+@keyframes float-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.task-input,
+.section,
+.calendar-header,
+.events-section {
+  animation: float-up 0.5s ease-out forwards;
+}
+
+.section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.calendar-header {
+  animation-delay: 0.4s;
+}
+
+.calendar-grid {
+  animation-delay: 0.5s;
+}
+
+.events-section {
+  animation-delay: 0.6s;
+}
+
+/* Shake animation */
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
